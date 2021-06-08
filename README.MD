@@ -1,5 +1,10 @@
-# DiLo Incremental Game
-This is repo made by me to learn Game UI Scripting.
-
-## Releases
-See [releases page](https://www.github.com/cloudenum/DiLoIncrementalGame/releases).
+# Chapter 10
+- [Problem 1](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 2](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 3](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 4](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 5](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 6](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 7](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 8](https://www.github.com/cloudenum/Chapter10/releases)
+- [Problem 9](https://www.github.com/cloudenum/Chapter10/releases)
