@@ -10,7 +10,7 @@ public class CircleController : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
 
-        rigidBody2D.AddForce(new Vector2(1f, 1f) * speed, ForceMode2D.Impulse);
+        rigidBody2D.AddForce(new Vector2(1f, 1f) * speed);
     }
 
     // Update is called once per frame
