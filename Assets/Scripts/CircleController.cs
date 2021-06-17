@@ -7,7 +7,7 @@ public class CircleController : MonoBehaviour
     private static ILogger logger = Debug.unityLogger;
     private static string TAG = "CircleSpeed";
     private Rigidbody2D rigidBody2D;
-    private Vector2 direction = new Vector2();
+    private Vector2 movePos;
     private Vector2 stop = new Vector2(0, 0);
 
     // Start is called before the first frame update
@@ -17,19 +17,22 @@ public class CircleController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-
-        Move(x, y);
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        movePos = Vector2.Lerp(transform.position, mousePos, speed);
     }
 
-    private void Move(float x, float y)
+    void FixedUpdate()
     {
-        direction.Set(x, y);
-        // rigidBody2D.AddForce(direction * speed);
-        rigidBody2D.velocity = direction * speed;
+        Move();
+    }
+
+    private void Move()
+    {
+        rigidBody2D.MovePosition(movePos);
 
         if (rigidBody2D.velocity != stop)
         {
