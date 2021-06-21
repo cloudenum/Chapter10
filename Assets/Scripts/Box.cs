@@ -11,7 +11,6 @@ public class Box : MonoBehaviour
         {
             gameObject.SetActive(false);
             Manager.AddScore();
-            Invoke("ReActivateBox", 3);
         }
     }
 
