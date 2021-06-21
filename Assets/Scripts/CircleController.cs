@@ -1,19 +1,20 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CircleController : MonoBehaviour
 {
-    public float speed;
+    public float Speed;
+    public GameManager Manager;
 
-    private static ILogger logger = Debug.unityLogger;
-    private static string TAG = "CircleSpeed";
-    private Rigidbody2D rigidBody2D;
-    private Vector2 movePos;
-    private Vector2 stop = new Vector2(0, 0);
+    private Rigidbody2D _rigidBody2D;
+    private Vector2 _movePos;
+    private Vector2 _stop = new Vector2(0, 0);
+    private List<GameObject> _consumedBoxes;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidBody2D = GetComponent<Rigidbody2D>();
+        _rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class CircleController : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        movePos = Vector2.Lerp(transform.position, mousePos, speed);
+        _movePos = Vector2.Lerp(transform.position, mousePos, Speed);
     }
 
     void FixedUpdate()
@@ -32,11 +33,11 @@ public class CircleController : MonoBehaviour
 
     private void Move()
     {
-        rigidBody2D.MovePosition(movePos);
+        _rigidBody2D.MovePosition(_movePos);
 
-        if (rigidBody2D.velocity != stop)
+        if (_rigidBody2D.velocity != _stop)
         {
-            logger.Log(TAG, $"Velocity: x:{ rigidBody2D.velocity.x } y:{ rigidBody2D.velocity.y }");
+            Debug.Log($"Velocity: x:{ _rigidBody2D.velocity.x } y:{ _rigidBody2D.velocity.y }");
         }
     }
 }
