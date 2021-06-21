@@ -4,13 +4,14 @@ public class Box : MonoBehaviour
 {
     public GameManager Manager;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Player")
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.tag == "Player")
         {
             gameObject.SetActive(false);
             Manager.AddScore();
+            Invoke("ReActivateBox", 3);
         }
     }
 
