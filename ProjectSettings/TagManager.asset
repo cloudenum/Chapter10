@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Box
   - Walls
+  - Food
+  - SpawnArea
   layers:
   - Default
   - TransparentFX
